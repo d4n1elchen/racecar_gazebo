@@ -176,8 +176,37 @@
   
   <xacro:wheel_transmission name="right_front_wheel" />
 
-  <!-- camera -->
-  <link name="ros_camera_link">
+  <!-- Add Hokuyo laser scanner -->
+
+  <link name="laser">
+    <inertial>
+      <xacro:hokuyo_inertial_params />
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://racecar_description/meshes/hokuyo.dae"/>
+        <material name="grey" />
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="hokuyo_joint" type="fixed">
+    <origin xyz="0.265 0.0 0.075" rpy="0 0 0"/>
+    <parent link="chassis" />
+    <child link="laser" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+
+  <!-- zed camera -->
+  <link name="zed_camera_link">
     <inertial>
       <mass value="1e-5" />
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -198,15 +227,16 @@
     </visual>
   </link>
 
-  <joint name="ros_camera_joint" type="fixed">
+  <joint name="zed_camera_joint" type="fixed">
     <origin xyz="0.390 0 0.04" rpy="0 0 0"/>
     <parent link="chassis"/>
-    <child link="ros_camera_link"/>
+    <child link="zed_camera_link"/>
     <axis xyz="0 0 1" />
     <!-- <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0" /> -->
   </joint>
 
-  <!-- camera lenses -->
+
+  <!-- zed camera lenses -->
   <!-- It seems these have to have a non-zero mass to have a camera attached? -->
   <link name="camera_link"><!-- this needs to match the name in zed_wrapper/zed_tf.launch -->
     <inertial>
@@ -215,7 +245,7 @@
       <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
     </inertial>
   </link>
-  <link name="camera_right_link">
+  <link name="zed_camera_right_link">
     <inertial>
       <mass value="1e-5" />
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -223,16 +253,16 @@
     </inertial>
   </link>
 
-  <joint name="camera_left_joint" type="fixed">
+  <joint name="zed_camera_left_joint" type="fixed">
     <origin xyz="0 0.06 0" rpy="0 0 0"/>
-    <parent link="ros_camera_link"/>
+    <parent link="zed_camera_link"/>
     <child link="camera_link"/>
     <axis xyz="0 0 1" />
   </joint>
-  <joint name="camera_right_joint" type="fixed">
+  <joint name="zed_camera_right_joint" type="fixed">
     <origin xyz="0 -0.06 0" rpy="0 0 0"/>
-    <parent link="camera_link"/>
-    <child link="camera_right_link"/>
+    <parent link="zed_camera_link"/>
+    <child link="zed_camera_right_link"/>
     <axis xyz="0 0 1" />
   </joint>
 
