@@ -67,99 +67,29 @@
   <include>
     <static>true</static>
     <name>1_3</name>
-    <uri>model://racecar_description/models/segment_straight</uri>
+    <uri>model://racecar_description/models/segment_turn</uri>
     <pose>1.21 0 0 0 0 0</pose>
   </include>
 
   <include>
     <static>true</static>
-    <name>1_4</name>
-    <uri>model://racecar_description/models/segment_turn</uri>
-    <pose>2.42 0 0 0 0 0</pose>
-  </include>
-
-  <include>
-    <static>true</static>
     <name>2_1</name>
-    <uri>model://racecar_description/models/segment_straight</uri>
-    <pose>-1.21 1.21 0 0 0 1.57079632679</pose>
+    <uri>model://racecar_description/models/segment_turn</uri>
+    <pose>-1.21 1.21 0 0 0 3.14159265359</pose>
   </include>
 
   <include>
     <static>true</static>
     <name>2_2</name>
-    <uri>model://racecar_description/models/segment_turn</uri>
-    <pose>0 1.21 0 0 0 -1.57079632679</pose>
-  </include>
-
-  <include>
-    <static>true</static>
-    <name>2_3</name>
     <uri>model://racecar_description/models/segment_straight</uri>
-    <pose>1.21 1.21 0 0 0 0</pose>
+    <pose>0 1.21 0 0 0 0</pose>
   </include>
 
   <include>
     <static>true</static>
     <name>2_4</name>
     <uri>model://racecar_description/models/segment_turn</uri>
-    <pose>2.42 1.21 0 0 0 1.57079632679</pose>
-  </include>
-
-  <include>
-    <static>true</static>
-    <name>3_1</name>
-    <uri>model://racecar_description/models/segment_straight</uri>
-    <pose>-1.21 2.42 0 0 0 1.57079632679</pose>
-  </include>
-
-  <include>
-    <static>true</static>
-    <name>3_2</name>
-    <uri>model://racecar_description/models/segment_straight</uri>
-    <pose>0 2.42 0 0 0 1.57079632679</pose>
-  </include>
-
-  <include>
-    <static>true</static>
-    <name>4_1</name>
-    <uri>model://racecar_description/models/segment_straight</uri>
-    <pose>-1.21 3.63 0 0 0 1.57079632679</pose>
-  </include>
-
-  <include>
-    <static>true</static>
-    <name>4_2</name>
-    <uri>model://racecar_description/models/segment_turn</uri>
-    <pose>0 3.63 0 0 0 3.14159265359</pose>
-  </include>
-
-  <include>
-    <static>true</static>
-    <name>4_3</name>
-    <uri>model://racecar_description/models/segment_turn</uri>
-    <pose>1.21 3.63 0 0 0 0</pose>
-  </include>
-
-  <include>
-    <static>true</static>
-    <name>5_1</name>
-    <uri>model://racecar_description/models/segment_turn</uri>
-    <pose>-1.21 4.84 0 0 0 3.14159265359</pose>
-  </include>
-
-  <include>
-    <static>true</static>
-    <name>5_2</name>
-    <uri>model://racecar_description/models/segment_straight</uri>
-    <pose>0 4.84 0 0 0 0</pose>
-  </include>
-
-  <include>
-    <static>true</static>
-    <name>5_3</name>
-    <uri>model://racecar_description/models/segment_turn</uri>
-    <pose>1.21 4.84 0 0 0 1.57079632679</pose>
+    <pose>1.21 1.21 0 0 0 1.57079632679</pose>
   </include>
 
 </world>
