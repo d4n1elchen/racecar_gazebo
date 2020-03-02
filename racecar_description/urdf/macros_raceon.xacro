@@ -46,9 +46,9 @@
 <!-- geometry macros -->
 
 <xacro:macro name="chassis_geometry">
-  <origin xyz="0.115 0 0" rpy="0 0 0" />
+  <origin xyz="0.135 0 -0.01" rpy="0 0 0" />
   <geometry>
-    <box size="0.33 0.12 0.05"/>
+    <box size="0.30 0.06 0.02"/>
   </geometry>
 </xacro:macro>
 
@@ -56,28 +56,28 @@
 <xacro:macro name="left_rear_wheel_geometry">
   <origin xyz="0 0 0" rpy="0 0 0" />
   <geometry>
-    <mesh filename="package://racecar_description/meshes/left_rear_wheel.STL" />
+    <cylinder length="0.025" radius="0.03" />
   </geometry>
 </xacro:macro>
 
 <xacro:macro name="right_rear_wheel_geometry">
   <origin xyz="0 0 0" rpy="0 0 0" />
   <geometry>
-    <mesh filename="package://racecar_description/meshes/right_rear_wheel.STL" />
+    <cylinder length="0.025" radius="0.03" />
   </geometry>
 </xacro:macro>
 
 <xacro:macro name="left_front_wheel_geometry">
   <origin xyz="0 0 0" rpy="0 0 0" />
   <geometry>
-    <mesh filename="package://racecar_description/meshes/left_front_wheel.STL" />
+    <cylinder length="0.025" radius="0.03" />
   </geometry>
 </xacro:macro>
 
 <xacro:macro name="right_front_wheel_geometry">
   <origin xyz="0 0 0" rpy="0 0 0" />
   <geometry>
-    <mesh filename="package://racecar_description/meshes/right_front_wheel.STL" />
+    <cylinder length="0.025" radius="0.03" />
   </geometry>
 </xacro:macro>
 
@@ -98,21 +98,21 @@
 <xacro:macro name="left_wheels_collision_geometry">
   <origin xyz="0 0 -0.0225" rpy="0 0 0" />
   <geometry>
-    <cylinder length="0.045" radius="0.05" />
+    <cylinder length="0.025" radius="0.03" />
   </geometry>
 </xacro:macro>
 
 <xacro:macro name="right_wheels_collision_geometry">
   <origin xyz="0 0 0.0225" rpy="0 0 0" />
   <geometry>
-    <cylinder length="0.045" radius="0.05" />
+    <cylinder length="0.025" radius="0.03" />
   </geometry>
 </xacro:macro>
 
 <xacro:macro name="camera_geometry">
   <origin xyz="0 0 0" rpy="0 0 0" />
   <geometry>
-    <box size="0.030 0.030 0.030"/>
+    <box size="0.02 0.02 0.02"/>
   </geometry>
 </xacro:macro>
 
