@@ -19,28 +19,13 @@ def set_throttle_steer(data):
     pub_pos_left_steering_hinge = rospy.Publisher('/racecar/left_steering_hinge_position_controller/command', Float64, queue_size=1)
     pub_pos_right_steering_hinge = rospy.Publisher('/racecar/right_steering_hinge_position_controller/command', Float64, queue_size=1)
 
-    a = 0.25
-    r = 0.08
-
-    omega = data.drive.speed/r
+    throttle = data.drive.speed/0.1
     steer = data.drive.steering_angle
 
-    rho = steer * r/a
-
-    if(steer>=0):
-        lomega = omega * (1 + rho)
-        romega = omega * (1 - rho)
-    else:
-        lomega = omega * (1 - rho)
-        romega = omega * (1 + rho)
-
-    pub_vel_left_rear_wheel.publish(lomega)
-    pub_vel_left_front_wheel.publish(omega)
-
-    pub_vel_right_rear_wheel.publish(romega)
-    pub_vel_right_front_wheel.publish(omega)
-
-    # TODO: calculate ackermann angle
+    pub_vel_left_rear_wheel.publish(throttle)
+    pub_vel_right_rear_wheel.publish(throttle)
+    pub_vel_left_front_wheel.publish(throttle)
+    pub_vel_right_front_wheel.publish(throttle)
     pub_pos_left_steering_hinge.publish(steer)
     pub_pos_right_steering_hinge.publish(steer)
 
