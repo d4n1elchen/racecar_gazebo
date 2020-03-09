@@ -35,10 +35,10 @@ def set_throttle_steer(data):
         romega = omega * (1 + rho)
 
     pub_vel_left_rear_wheel.publish(lomega)
-    pub_vel_left_front_wheel.publish(omega)
+    pub_vel_left_front_wheel.publish(lomega)
 
     pub_vel_right_rear_wheel.publish(romega)
-    pub_vel_right_front_wheel.publish(omega)
+    pub_vel_right_front_wheel.publish(romega)
 
     # TODO: calculate ackermann angle
     pub_pos_left_steering_hinge.publish(steer)
