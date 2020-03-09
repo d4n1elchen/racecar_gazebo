@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import rospy
+from math import *
 from std_msgs.msg import Bool
 from std_msgs.msg import Float32
 from std_msgs.msg import Float64
@@ -19,20 +20,17 @@ def set_throttle_steer(data):
     pub_pos_left_steering_hinge = rospy.Publisher('/racecar/left_steering_hinge_position_controller/command', Float64, queue_size=1)
     pub_pos_right_steering_hinge = rospy.Publisher('/racecar/right_steering_hinge_position_controller/command', Float64, queue_size=1)
 
-    a = 0.25
-    r = 0.08
+    L = 0.25 # vehicle length
+    t = 0.08 # half tire distance
+    r = 0.03 # wheel radius
 
     omega = data.drive.speed/r
-    steer = data.drive.steering_angle
+    alpha = data.drive.steering_angle
+    R = L/tan(alpha) if alpha != 0 else 0
+    rho = tan(alpha) * t/L
 
-    rho = steer * r/a
-
-    if(steer>=0):
-        lomega = omega * (1 + rho)
-        romega = omega * (1 - rho)
-    else:
-        lomega = omega * (1 - rho)
-        romega = omega * (1 + rho)
+    lomega = omega * (1 - rho)
+    romega = omega * (1 + rho)
 
     pub_vel_left_rear_wheel.publish(lomega)
     pub_vel_left_front_wheel.publish(lomega)
@@ -40,9 +38,15 @@ def set_throttle_steer(data):
     pub_vel_right_rear_wheel.publish(romega)
     pub_vel_right_front_wheel.publish(romega)
 
-    # TODO: calculate ackermann angle
-    pub_pos_left_steering_hinge.publish(steer)
-    pub_pos_right_steering_hinge.publish(steer)
+    if R == 0:
+        lsteer = 0
+        rsteer = 0
+    else:
+        lsteer = atan(L/(R-t))
+        rsteer = atan(L/(R+t))
+
+    pub_pos_left_steering_hinge.publish(lsteer)
+    pub_pos_right_steering_hinge.publish(rsteer)
 
 def servo_commands():
 
