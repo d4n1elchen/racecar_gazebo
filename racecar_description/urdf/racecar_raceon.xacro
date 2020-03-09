@@ -42,7 +42,7 @@
       <xacro:left_rear_wheel_geometry />
       <material name="grey" />
     </visual>
-    <collision>robot
+    <collision>
       <xacro:left_wheels_collision_geometry />
     </collision>
   </link>
