@@ -64,7 +64,7 @@
       <visualize>true</visualize>
       <!-- math.atan(320 / 687.8065795898438) * 2 -->
       <camera name="camera_camera">
-        <horizontal_fov>1.91986218</horizontal_fov>
+        <horizontal_fov>1.74533</horizontal_fov>
         <image>
           <width>640</width>
           <height>480</height>
