@@ -12,8 +12,8 @@
 </gazebo>
 
 <gazebo reference="left_rear_wheel">
-  <mu1 value="1.0"/>
-  <mu2 value="1.0"/>
+  <mu1 value="1.5"/>
+  <mu2 value="1.5"/>
   <kp  value="10000000.0" />
   <kd  value="1.0" />
   <fdir1 value="0 1 0"/>
@@ -21,8 +21,8 @@
 </gazebo>
 
 <gazebo reference="right_rear_wheel">
-  <mu1 value="1.0"/>
-  <mu2 value="1.0"/>
+  <mu1 value="1.5"/>
+  <mu2 value="1.5"/>
   <kp  value="10000000.0" />
   <kd  value="1.0" />
   <fdir1 value="0 1 0"/>
@@ -30,8 +30,8 @@
 </gazebo>
 
 <gazebo reference="left_front_wheel">
-  <mu1 value="1.0"/>
-  <mu2 value="1.0"/>
+  <mu1 value="1.5"/>
+  <mu2 value="1.5"/>
   <kp  value="10000000.0" />
   <kd  value="1.0" />
   <fdir1 value="0 1 0"/>
@@ -39,8 +39,8 @@
 </gazebo>
 
 <gazebo reference="right_front_wheel">
-  <mu1 value="1.0"/>
-  <mu2 value="1.0"/>
+  <mu1 value="1.5"/>
+  <mu2 value="1.5"/>
   <kp  value="10000000.0" />
   <kd  value="1.0" />
   <fdir1 value="0 1 0"/>
